@@ -66,6 +66,12 @@ We love ☁️ [CloudFlare][cloudflare] and fully support CloudFlare's Reverse P
 If you love CloudFlare so much as we do just enable CloudFlare's Reverse Proxy Headers by passing ``{cloudflare: true}``
 to the adapter configuration inside your ``svelte.config.js``.
 
+## 🔒 Build with great Security
+
+As pointed out by nicholai from [nodeiflux][nodeiflux] some people may have concerns trusting in [Alex Hultman][alex_hultman] (the creator of [uWebSockets.js][uWebSockets.js]). Therefore we provide a configuration option ``secureMode`` which disables the automatic install of [uWebSockets.js][uWebSockets.js]. You can easily enable ``secureMode`` by passing ``{secureMode: true}`` to the adapter configuration inside your ``svelte.config.js``. Anyway after activating the ``secureMode`` you will have to manually install a trusted version (probably a fork of the original project) into your build output.
+
+Furthermore please take note that [uWebSockets.js][uWebSockets.js] internally uses some dependencies ([uWebSockets][uWebSockets], [uSockets][uSockets]) which are also made and maintained by [Alex Hultman][alex_hultman] and therefore maybe build by yourself too.
+
 ## 📝 Ways to contribute
 Developers interested in contributing should read the [Code of Conduct][code_of_conduct] and the [Contribution Guide][contribution].
 
@@ -94,3 +100,7 @@ Thanks for reading the [README](README.md) ❤️
 [uWebSockets.js]: https://github.com/uNetworking/uWebSockets.js/
 [svelte_kit]: https://kit.svelte.dev/
 [svelte_kit_beta]: https://svelte.dev/blog/sveltekit-beta
+[nodeiflux]: https://discordapp.com/invite/vUsrbjd
+[alex_hultman]: https://alexhultman.medium.com/
+[uWebSockets]: https://github.com/uNetworking/uWebSockets
+[uSockets]: https://github.com/uNetworking/uSockets

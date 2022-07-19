@@ -6,7 +6,7 @@ import path from 'path';
 const files = fileURLToPath(new URL('./files', import.meta.url).href);
 
 export default function (options = {}) {
-    const { out = 'build', name = 'server' } = options;
+    const { out = 'build', name = 'server', secureMode = false } = options;
 
     return {
         name: 'adapter-uwebsockets',
@@ -43,7 +43,7 @@ export default function (options = {}) {
                     main: 'index.js',
                     dependencies: {
                         ...(packageJson.dependencies || {}),
-                        'uWebSockets.js': 'uNetworking/uWebSockets.js#v20.10.0',
+                        ...(secureMode ? {} : {'uWebSockets.js': 'uNetworking/uWebSockets.js#v20.10.0'}),
                         '@sveltejs/kit': '^1.0.0-next.377',
                         mrmime: '^1.0.1',
                         totalist: '^3.0.0',
